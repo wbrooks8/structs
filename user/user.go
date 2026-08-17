@@ -13,6 +13,13 @@ type User struct {
 	createdAtt time.Time
 }
 
+// Embeds User into Admin so Admin has all the fields from User
+type Admin struct {
+	email string
+	password string
+	User
+}
+
 // Nests the function inside of user struct
 func (u *User) OutputUserDetails() {
 	fmt.Println(u.firstName, u.lastName, u.birthdate)
@@ -21,6 +28,19 @@ func (u *User) OutputUserDetails() {
 func (u *User) ClearUserName () {
 	u.firstName = ""
 	u.lastName = ""
+}
+
+func NewAdmin (email, password string) Admin {
+	return Admin {
+		email: email,
+		password: password,
+		User: User   {
+			firstName: "ADMIN",
+			lastName: "ADMIN",
+			birthdate: "---",
+			createdAtt: time.Now(),
+		},
+	}
 }
 
 func New() (*User, error) {
