@@ -9,7 +9,7 @@ func main() {
 	var appUser *user.User
 	var err error
 
-	appUser, err = user.NewUser()
+	appUser, err = user.New()
 
 	if err != nil {
 		fmt.Println(err)

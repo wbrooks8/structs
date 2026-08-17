@@ -23,7 +23,7 @@ func (u *User) ClearUserName () {
 	u.lastName = ""
 }
 
-func NewUser() (*User, error) {
+func New() (*User, error) {
 	firstName := getUserData("Please enter your first name: ")
 	lastName := getUserData("Please enter your last name: ")
 	birthDate := getUserData("Please enter your birthday (MM/DD/YYYY): ")
